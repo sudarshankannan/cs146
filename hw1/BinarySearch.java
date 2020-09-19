@@ -13,9 +13,11 @@ class BinarySearch{
                 System.out.println(mid + " contains " + num);
                 return;
             }
+            //if the num is greater than the mid value, then we set the high index to be 1 greater than mid            
             if(arr[mid] < num){
                 low = mid + 1;
             }
+            //if num is less than middle value, then we set the high index to 1 less than middle index
             else{
                 high = mid-1;
             }
