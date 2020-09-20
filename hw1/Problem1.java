@@ -46,7 +46,6 @@ class Problem1{
                     min_index = i;
                 }
             }
-            System.out.println(min_index + " " + arr[min_index] + " " + arr[j]);
             int temp = arr[j];
             arr[j] = arr[min_index];
             arr[min_index] = temp;
@@ -63,18 +62,35 @@ class Problem1{
             arr[j+1] = curr;
         }
     }
+    public static int[] concatenateArrays(int[] arr1, int[] arr2){
+        int new_arr_length = arr1.length + arr2.length;
+        int[] new_arr = new int[arr1.length+arr2.length];
+        int i=0;
+        while(i<arr1.length){
+            new_arr[i] = arr1[i];
+            i++;
+        }
+        int j = 0;
+        while(j<arr2.length){
+            new_arr[j+arr1.length] = arr2[j];
+            j++;
+        }
+        return new_arr;
+    }
     public static void main(String[] args) {
         //part a
         int[] arr1 =  new int[50];
         Problem1.readFile("arr1.txt",arr1);
-        //Problem1.bubbleSort(arr1);
-        //Problem1.printArr(arr1);
+        Problem1.bubbleSort(arr1);
+        Problem1.printArr(arr1);
         //part b
-        int[] arr2 =  {64,25,12,22,11};
-        //Problem1.readFile("arr2.txt",arr2);
+        int[] arr2 =  new int[50];
+        Problem1.readFile("arr2.txt",arr2);
         Problem1.selectionSort(arr2);
         Problem1.printArr(arr2);
         //part c
-        
+        int[] arr3 = Problem1.concatenateArrays(arr1,arr2);
+        Problem1.insertionSort(arr3);
+        Problem1.printArr(arr3);
     }
 }
