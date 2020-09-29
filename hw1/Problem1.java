@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 class Problem1{
     static void readFile(String filename, int[] arr){
+        //this is a function to read in an array from a text file
         try{
             File myFile = new File(filename);
             Scanner scan = new Scanner(myFile);
@@ -62,6 +63,7 @@ class Problem1{
             arr[j+1] = curr;
         }
     }
+    //this method combines two arrays into one new array
     public static int[] concatenateArrays(int[] arr1, int[] arr2){
         int new_arr_length = arr1.length + arr2.length;
         int[] new_arr = new int[arr1.length+arr2.length];
@@ -82,13 +84,17 @@ class Problem1{
         int[] arr1 =  new int[50];
         Problem1.readFile("arr1.txt",arr1);
         Problem1.bubbleSort(arr1);
+        System.out.println("Bubble Sorted Part A is below");
         Problem1.printArr(arr1);
         //part b
+        System.out.println("Selection Sorted Part B is below");
         int[] arr2 =  new int[50];
         Problem1.readFile("arr2.txt",arr2);
         Problem1.selectionSort(arr2);
         Problem1.printArr(arr2);
         //part c
+        //Concatenate arr1 and arr2 and then perform insertion sort
+        System.out.println("Insertion Sorted Part C is below");
         int[] arr3 = Problem1.concatenateArrays(arr1,arr2);
         Problem1.insertionSort(arr3);
         Problem1.printArr(arr3);
