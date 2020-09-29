@@ -8,16 +8,16 @@ class BinarySearch{
         int mid;
         while(low <= high){
             mid = low + (high - low)/2;
-            //check if index mid contains num
+            //check if mid contains num
             if(arr[mid]==num){
-                System.out.println(mid + " contains " + num);
+                System.out.println("Index " + mid + " contains " + num);
                 return;
             }
-            //if the num is greater than the mid value, then we set the high index to be 1 greater than mid            
+            //if the num is greater than the middle value, set the high index to be 1 greater than mid            
             if(arr[mid] < num){
                 low = mid + 1;
             }
-            //if num is less than middle value, then we set the high index to 1 less than middle index
+            //if num is less than middle value, set the high index to 1 less than middle index
             else{
                 high = mid-1;
             }
