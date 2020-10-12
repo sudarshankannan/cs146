@@ -4,7 +4,7 @@ class QuickSort_Sudarshan_Kannan_1409{
     static void quickSort(int[] arr, int low, int high){
         if(low<high){
             int partitionIndex = doPartition(arr,low,high);
-            quickSort(arr,low,high);
+            quickSort(arr,low,partitionIndex-1);
             quickSort(arr,partitionIndex+1,high);
         }
     }
