@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.io.*;
 class MergeSort_Sudarshan_Kannan_14609{
-    void mergeSort(int arr[], int left, int right){
+    static void mergeSort(int arr[], int left, int right){
         if(left < right){
             int middle = (left + right)/2;
             mergeSort(arr, left, middle);
@@ -9,7 +9,7 @@ class MergeSort_Sudarshan_Kannan_14609{
             merge(arr, left, middle, right);
         }
     }
-    void merge(int[] arr, int left, int middle, int right){
+    static void merge(int[] arr, int left, int middle, int right){
         int size1 = middle - left + 1;
         int size2 = right - middle;
         int leftArr[] = new int[size1];
@@ -84,5 +84,8 @@ class MergeSort_Sudarshan_Kannan_14609{
         System.out.println();
     }
     public static void main(String[] args) {
+        int[] arr = MergeSort_Sudarshan_Kannan_14609.readFile("MyList.txt");
+        MergeSort_Sudarshan_Kannan_14609.mergeSort(arr,0,arr.length -1);
+        MergeSort_Sudarshan_Kannan_14609.printArray(arr);
     }
 }

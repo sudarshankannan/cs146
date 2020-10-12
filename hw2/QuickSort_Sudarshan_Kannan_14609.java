@@ -1,14 +1,14 @@
 import java.util.Scanner;
 import java.io.*;
 class QuickSort_Sudarshan_Kannan_1409{
-    void quickSort(int[] arr, int low, int high){
+    static void quickSort(int[] arr, int low, int high){
         if(low<high){
             int partitionIndex = doPartition(arr,low,high);
             quickSort(arr,low,high);
             quickSort(arr,partitionIndex+1,high);
         }
     }
-    int doPartition(int arr[], int low, int high){
+    static int doPartition(int arr[], int low, int high){
         int pivot = arr[high];
         int i = (low-1);
         for(int j=low; j<high; j++){
@@ -61,6 +61,8 @@ class QuickSort_Sudarshan_Kannan_1409{
         System.out.println();
     }
     public static void main(String[] args) {
-        
+        int[] arr = QuickSort_Sudarshan_Kannan_1409.readFile("MyList.txt");
+        QuickSort_Sudarshan_Kannan_1409.quickSort(arr,0,arr.length -1);
+        QuickSort_Sudarshan_Kannan_1409.printArray(arr);
     }
 }
