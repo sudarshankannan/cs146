@@ -20,16 +20,13 @@ class Radix{
             max/=10;
             maxDigits++;
         }
-        System.out.println("maxDigits: " + maxDigits);
         //perform sorting
-        int exponent = 1;
+        int exponent = 0;
         int divisor = 1;
-        int z = 1;
-        divisor = 1;
         while(exponent < maxDigits){
             for(int i=0; i<arr.length; i++){
                 int rIndex = (arr[i]/divisor)%10;
-                System.out.println(rIndex + " " + arr[i]);
+                //System.out.println(rIndex + " " + arr[i]);
                 radixArr[rIndex].add(arr[i]);
             }
             int arrayIndex = 0;
@@ -38,7 +35,6 @@ class Radix{
                 while(curr < radixArr[x].size()){
                     if(radixArr[x].size()>0){
                         arr[arrayIndex] = radixArr[x].get(curr);
-                        //System.out.println("arr[arrayIndex] = " + arr[arrayIndex] + ", expected = " + radixArr[x].get(curr));
                         arrayIndex++;
                     }
                     curr++;
@@ -48,16 +44,28 @@ class Radix{
                 radixArr[y] = null;
                 radixArr[y] = new ArrayList<Integer>();
             }
-            Radix.printArray(arr);
+            //Radix.printArray(arr);
             divisor*=10;
             exponent++;
         }
     }
     public static void main(String[] args) {
         //int arr[] = Radix.readFile("MyList.txt");
-        int arr[] = new int[]{170,45,75,90,802,24,2,66};
-        Radix.radix(arr);
-        Radix.printArray(arr);
+        int arr1[] = new int[]{170,45,75,90,802,24,2,66};
+        //Test 1
+        System.out.print("Testing with arr1: ");
+        Radix.printArray(arr1);
+        Radix.radix(arr1);
+        System.out.print("Result: ");
+        Radix.printArray(arr1);
+        System.out.println("***********************************");
+        int arr2[] = Radix.readFile("MyList.txt");
+        System.out.print("Testing with arr2: ");
+        Radix.printArray(arr2);
+        Radix.radix(arr2);
+        System.out.print("Result: ");
+        Radix.printArray(arr2);
+        System.out.println("***********************************");
     }
     //miscellaneous helper functions
     static int[] readFile(String filename){
