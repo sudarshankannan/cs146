@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.io.*;
 
 class Radix{
+    //radix sort function
     static void radix(int[] arr){
         ArrayList<Integer>[] radixArr = (ArrayList<Integer>[])new ArrayList[10];
         for(int i=0; i<10; i++){
@@ -49,6 +50,7 @@ class Radix{
             exponent++;
         }
     }
+    //main method w/ tests
     public static void main(String[] args) {
         //int arr[] = Radix.readFile("MyList.txt");
         int arr1[] = new int[]{170,45,75,90,802,24,2,66};
@@ -67,7 +69,7 @@ class Radix{
         Radix.printArray(arr2);
         System.out.println("***********************************");
     }
-    //miscellaneous helper functions
+    //file io
     static int[] readFile(String filename){
         //this is a function to read in an array from a text file
         File myFile = null;
@@ -98,6 +100,7 @@ class Radix{
         }
         return arr;
     }
+    //printing function
     static void printArray(int[] arr){
         for(int i=0; i<arr.length; i++){
             System.out.print(arr[i] + " ");
