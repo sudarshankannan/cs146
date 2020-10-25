@@ -4,12 +4,20 @@ class Tree{
     Tree(){
         this.root = null;
     }
+    //traverse inorder
+    void printInorder(Node node) { 
+        if (node == null) 
+            return;
+        printInorder(node.left); 
+        System.out.print(node.data + " "); 
+        printInorder(node.right); 
+    } 
     //insert
     void insert(int data){
         Node nuNode = new Node(data);
-        if(this.root = null){
+        if(this.root == null){
             this.root = nuNode;
-            this.color = 1;
+            this.root.color = 1;
         }
         else{
             Node p = this.root;
@@ -20,7 +28,7 @@ class Tree{
                         nuNode.parent = p;
                         //RECOLOR LOGIC
                         if(nuNode.parent.color == 0){
-                            recolor(nuNode);
+                            //recolor(nuNode);
                         }
                         return;
                     }
@@ -34,7 +42,7 @@ class Tree{
                         nuNode.parent = p;
                         //RECOLOR LOGIC
                         if(nuNode.parent.color == 0){
-                            recolor(nuNode);
+                            //recolor(nuNode);
                         }
                         return;
                     }
@@ -52,13 +60,13 @@ class Tree{
             redred = false;
             if(p.parent.parent != null){
                 if(p.parent.parent.right.color == 0 && p.parent.parent.right != p.parent){
-                    p.parent.parent.right.color = 1
-                    p.parent = 1;
+                    p.parent.parent.right.color = 1;
+                    p.parent.color = 1;
                     redred = true;
                 }
                 else if(p.parent.parent.left.color == 0 && p.parent.parent.left != p.parent){
-                    p.parent.parent.left.color = 1
-                    p.parent = 1;
+                    p.parent.parent.left.color = 1;
+                    p.parent.color = 1;
                     redred = true;
                 }
             }
