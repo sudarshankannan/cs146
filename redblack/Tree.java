@@ -81,18 +81,40 @@ class Tree{
             }
         }
         //red parent and black uncle case
-        /*
         boolean redblack = false;
         while(p!=this.root){
             redblack = false;
             if(p.parent.parent != null){
-                if(p.parent.parent.right != p.parent && ){
+                if(p.parent.parent.right != p.parent && (p.parent.parent.right==null || p.parent.parent.right.color==1)){
+                    if(p.parent.left != p){
+                        //left
+                        Node temp = p.parent.left;
+                        p.parent.left = p.parent.parent;
+                        p.parent.parent = p.parent.parent.parent;
+                        p.parent.parent.parent = p.parent;
+                    }
+                    else{
+                        //right-left
 
+                    }
                 }
-                else if(p.parent.parent.left != p.parent && {
-
+                if(p.parent.parent.left!=p.parent && (p.parent.parent.left==null || p.parent.parent.left.color==1)){
+                    if(p.parent.right != p){
+                        //right
+                        Node temp = p.parent.right;
+                        p.parent.right = p.parent.parent;
+                        p.parent.parent = p.parent.parent.parent;
+                        p.parent.parent.parent = p.parent;
+                    }
+                    else{
+                        //left-right
+                        Node temp = p.left;
+                        p.left = p.parent;
+                        p.parent.right = p.left;
+                        p.parent.parent.left = 
+                    }
                 }
             }
-        }*/
+        }
     }
 }
